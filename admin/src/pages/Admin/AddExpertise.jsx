@@ -7,7 +7,7 @@ import { AppContext } from '../../context/AppContext'
 
 const AddExpert = () => {
 
-    const [ExpImg, setexpertiseImg] = useState(false)
+    const [ExpImg, setExpertiseImg] = useState(false)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -49,10 +49,10 @@ const AddExpert = () => {
                 console.log(`${key}: ${value}`);
             });
 
-            const { data } = await axios.post(backendUrl + '/api/admin/add-doctor', formData, { headers: { aToken } })
+            const { data } = await axios.post(backendUrl + '/api/admin/add-Expert', formData, { headers: { aToken } })
             if (data.success) {
                 toast.success(data.message)
-                setexpertiseImg(false)
+                setExpertiseImg(false)
                 setName('')
                 setPassword('')
                 setEmail('')
@@ -82,7 +82,7 @@ const AddExpert = () => {
                     <label htmlFor="doc-img">
                         <img className='w-16 bg-gray-100 rounded-full cursor-pointer' src={ExpImg ? URL.createObjectURL(ExpImg) : assets.upload_area} alt="" />
                     </label>
-                    <input onChange={(e) => setexpertiseImg(e.target.files[0])} type="file" name="" id="doc-img" hidden />
+                    <input onChange={(e) => setExpertiseImg(e.target.files[0])} type="file" name="" id="doc-img" hidden />
                     <p>Upload Expertise <br /> picture</p>
                 </div>
 
@@ -123,7 +123,7 @@ const AddExpert = () => {
 
                         <div className='flex-1 flex flex-col gap-1'>
                             <p>Fees</p>
-                            <input onChange={e => setFees(e.target.value)} value={fees} className='border rounded px-3 py-2' type="number" placeholder='expertise fees' required />
+                            <input onChange={e => setFees(e.target.value)} value={fees} className='border rounded px-3 py-2' type="number" placeholder='Expertise fees' required />
                         </div>
 
                     </div>
@@ -174,7 +174,7 @@ const AddExpert = () => {
 
                 <div>
                     <p className='mt-4 mb-2'>About Expertise</p>
-                    <textarea onChange={e => setAbout(e.target.value)} value={about} className='w-full px-4 pt-2 border rounded' rows={5} placeholder='write about doctor'></textarea>
+                    <textarea onChange={e => setAbout(e.target.value)} value={about} className='w-full px-4 pt-2 border rounded' rows={5} placeholder='write about Expert'></textarea>
                 </div>
 
                 <button type='submit' className='bg-primary px-10 py-3 mt-4 text-white rounded-full'>Add Expert</button>

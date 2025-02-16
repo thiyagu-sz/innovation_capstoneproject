@@ -23,7 +23,7 @@ const About = () => {
             Welcome to <b>InnovateMate</b>, the ultimate platform for fostering collaboration, innovation, and teamwork. InnovateMate connects students, entrepreneurs, sponsors, and mentors to bring innovative ideas to life.
           </p>
           <p>
-            With InnovateMate, users can find team members, sponsors, and technical guides for startups and academic projects. Whether you’re looking for a co-founder or technical expertise, our platform bridges the gap between ambition and execution.
+            With InnovateMate, users can find team members, sponsors, and technical guides for startups and academic projects. Whether you’re looking for a co-founder or technical Expertise, our platform bridges the gap between ambition and execution.
           </p>
           <b className="text-gray-800">Our Mission</b>
           <p>

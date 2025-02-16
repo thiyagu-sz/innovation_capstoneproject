@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Doctors from './pages/Expertise'
+import Experts from './pages/Expertise'
 import Login from './pages/Login'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -21,8 +21,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/experts' element={<Doctors />} />
-        <Route path='/expertise/:speciality' element={<Doctors />} />
+        <Route path='/Experts' element={<Experts />} />
+        <Route path='/Expertise/:speciality' element={<Experts />} />
         <Route path='/login' element={<Login />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />

@@ -1,24 +1,24 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
-const Relatedexpertise = ({ speciality, docId: expId }) => {
+const RelatedExpertise = ({ speciality, docId: expId }) => {
 
     const navigate = useNavigate()
-    const { doctors: expertise } = useContext(AppContext)
+    const { Experts: Expertise } = useContext(AppContext)
 
     const [relExp, setRelExp] = useState([])
 
     useEffect(() => {
-        if (expertise.length > 0 && speciality) {
-            const expertiseData = expertise.filter((doc) => doc.speciality === speciality && doc._id !== expId)
-            setRelExp(expertiseData)
+        if (Expertise.length > 0 && speciality) {
+            const ExpertiseData = Expertise.filter((doc) => doc.speciality === speciality && doc._id !== expId)
+            setRelExp(ExpertiseData)
         }
-    }, [expertise, speciality, expId])
+    }, [Expertise, speciality, expId])
 
     return (
         <div className='flex flex-col items-center gap-4 my-16 text-[#262626]'>
-            <h1 className='text-3xl font-medium'>Related Doctors</h1>
-            <p className='sm:w-1/3 text-center text-sm'>Simply browse through our extensive list of trusted doctors.</p>
+            <h1 className='text-3xl font-medium'>Related Experts</h1>
+            <p className='sm:w-1/3 text-center text-sm'>Simply browse through our extensive list of trusted Experts.</p>
             <div className='w-full grid grid-cols-auto gap-4 pt-5 gap-y-6 px-3 sm:px-0'>
                 {relExp.map((item, index) => (
                     <div onClick={() => { navigate(`/appointment/${item._id}`); scrollTo(0, 0) }} className='border border-[#C9D8FF] rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500' key={index}>
@@ -38,4 +38,4 @@ const Relatedexpertise = ({ speciality, docId: expId }) => {
     )
 }
 
-export default Relatedexpertise
+export default RelatedExpertise

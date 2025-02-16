@@ -1,16 +1,16 @@
 import express from 'express';
-import { loginDoctor, appointmentsDoctor, appointmentCancel, doctorList, changeAvailablity, appointmentComplete, ExpertiseDashboard, ExpertiseProfile, updateExpertiseProfile } from '../controllers/ExpertiseController.js';
-import authDoctor from '../middleware/authDoctor.js';
-const doctorRouter = express.Router();
+import { loginExpert, appointmentsExpert, appointmentCancel, ExpertList, changeAvailablity, appointmentComplete, ExpertiseDashboard, ExpertiseProfile, updateExpertiseProfile } from '../controllers/ExpertiseController.js';
+import authExpert from '../middleware/authExpert.js';
+const ExpertRouter = express.Router();
 
-doctorRouter.post("/login", loginDoctor)
-doctorRouter.post("/cancel-appointment", authDoctor, appointmentCancel)
-doctorRouter.get("/appointments", authDoctor, appointmentsDoctor)
-doctorRouter.get("/list", doctorList)
-doctorRouter.post("/change-availability", authDoctor, changeAvailablity)
-doctorRouter.post("/complete-appointment", authDoctor, appointmentComplete)
-doctorRouter.get("/dashboard", authDoctor, ExpertiseDashboard)
-doctorRouter.get("/profile", authDoctor, ExpertiseProfile)
-doctorRouter.post("/update-profile", authDoctor, updateExpertiseProfile)
+ExpertRouter.post("/login", loginExpert)
+ExpertRouter.post("/cancel-appointment", authExpert, appointmentCancel)
+ExpertRouter.get("/appointments", authExpert, appointmentsExpert)
+ExpertRouter.get("/list", ExpertList)
+ExpertRouter.post("/change-availability", authExpert, changeAvailablity)
+ExpertRouter.post("/complete-appointment", authExpert, appointmentComplete)
+ExpertRouter.get("/dashboard", authExpert, ExpertiseDashboard)
+ExpertRouter.get("/profile", authExpert, ExpertiseProfile)
+ExpertRouter.post("/update-profile", authExpert, updateExpertiseProfile)
 
-export default doctorRouter;
+export default ExpertRouter;

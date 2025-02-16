@@ -2,14 +2,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
 import { assets } from '../assets/assets'
-import Relatedexpertise from '../components/RelatedExpertise'
+import RelatedExpertise from '../components/RelatedExpertise'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
 const Appointment = () => {
 
     const { docId } = useParams()
-    const { doctors, currencySymbol, backendUrl, token, getDoctosData } = useContext(AppContext)
+    const { Experts, currencySymbol, backendUrl, token, getDoctosData } = useContext(AppContext)
     const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
 
     const [docInfo, setDocInfo] = useState(false)
@@ -20,7 +20,7 @@ const Appointment = () => {
     const navigate = useNavigate()
 
     const fetchDocInfo = async () => {
-        const docInfo = doctors.find((doc) => doc._id === docId)
+        const docInfo = Experts.find((doc) => doc._id === docId)
         setDocInfo(docInfo)
     }
 
@@ -119,10 +119,10 @@ const Appointment = () => {
     }
 
     useEffect(() => {
-        if (doctors.length > 0) {
+        if (Experts.length > 0) {
             fetchDocInfo()
         }
-    }, [doctors, docId])
+    }, [Experts, docId])
 
     useEffect(() => {
         if (docInfo) {
@@ -133,7 +133,7 @@ const Appointment = () => {
     return docInfo ? (
         <div>
 
-            {/* ---------- Doctor Details ----------- */}
+            {/* ---------- Expert Details ----------- */}
             <div className='flex flex-col sm:flex-row gap-4'>
                 <div>
                     <img className='bg-primary w-full sm:max-w-72 rounded-lg' src={docInfo.image} alt="" />
@@ -180,8 +180,8 @@ const Appointment = () => {
                 <button onClick={bookAppointment} className='bg-primary text-white text-sm font-light px-20 py-3 rounded-full my-6'>Book an appointment</button>
             </div>
 
-            {/* Listing Releated Doctors */}
-            <Relatedexpertise speciality={docInfo.speciality} docId={docId} />
+            {/* Listing Releated Experts */}
+            <RelatedExpertise speciality={docInfo.speciality} docId={docId} />
         </div>
     ) : null
 }

@@ -12,17 +12,17 @@ const AdminContextProvider = (props) => {
     const [aToken, setAToken] = useState(localStorage.getItem('aToken') ? localStorage.getItem('aToken') : '')
 
     const [appointments, setAppointments] = useState([])
-    const [doctors, setDoctors] = useState([])
+    const [Experts, setExperts] = useState([])
     const [dashData, setDashData] = useState(false)
 
-    // Getting all Doctors data from Database using API
-    const getAllDoctors = async () => {
+    // Getting all Experts data from Database using API
+    const getAllExperts = async () => {
 
         try {
 
-            const { data } = await axios.get(backendUrl + '/api/admin/all-doctors', { headers: { aToken } })
+            const { data } = await axios.get(backendUrl + '/api/admin/all-Experts', { headers: { aToken } })
             if (data.success) {
-                setDoctors(data.doctors)
+                setExperts(data.Experts)
             } else {
                 toast.error(data.message)
             }
@@ -33,14 +33,14 @@ const AdminContextProvider = (props) => {
 
     }
 
-    // Function to change doctor availablity using API
+    // Function to change Expert availablity using API
     const changeAvailability = async (docId) => {
         try {
 
             const { data } = await axios.post(backendUrl + '/api/admin/change-availability', { docId }, { headers: { aToken } })
             if (data.success) {
                 toast.success(data.message)
-                getAllDoctors()
+                getAllExperts()
             } else {
                 toast.error(data.message)
             }
@@ -113,8 +113,8 @@ const AdminContextProvider = (props) => {
 
     const value = {
         aToken, setAToken,
-        doctors,
-        getAllDoctors,
+        Experts,
+        getAllExperts,
         changeAvailability,
         appointments,
         getAllAppointments,

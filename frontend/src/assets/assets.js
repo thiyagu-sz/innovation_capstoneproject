@@ -48,29 +48,29 @@ export const assets = {
     weblogo,
 }
 
-export const expertisedata = [
+export const Expertisedata = [
     {
-        expert: 'AI and Machine Learning',
+        Expert: 'AI and Machine Learning',
         image: ai
     },
     {
-        expert: 'Web Development',
+        Expert: 'Web Development',
         image: weblogo
     },
     {
-        expert: 'Blockchain',
+        Expert: 'Blockchain',
         image: new Image().src = 'https://via.placeholder.com/300x200.png?text=Blockchain'
     },
     {
-        expert: 'Game Development',
+        Expert: 'Game Development',
         image: new Image().src = 'https://via.placeholder.com/300x200.png?text=Game+Development'
     },
     {
-        expert: 'Cybersecurity',
+        Expert: 'Cybersecurity',
         image: new Image().src = 'https://source.unsplash.com/300x200/?cybersecurity'
     },
     {
-        expert: 'Data Science',
+        Expert: 'Data Science',
         image: new Image().src = 'https://picsum.photosi/300/200'
     }
 ];

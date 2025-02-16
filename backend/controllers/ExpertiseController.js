@@ -3,8 +3,8 @@ import bcrypt from "bcrypt";
 import ExpertModel from "../models/ExpertModel.js";
 import appointmentModel from "../models/appointmentModel.js";
 
-// API for doctor Login 
-const loginDoctor = async (req, res) => {
+// API for Expert Login 
+const loginExpert = async (req, res) => {
 
     try {
 
@@ -31,8 +31,8 @@ const loginDoctor = async (req, res) => {
     }
 }
 
-// API to get doctor appointments for doctor panel
-const appointmentsDoctor = async (req, res) => {
+// API to get Expert appointments for Expert panel
+const appointmentsExpert = async (req, res) => {
     try {
 
         const { docId } = req.body
@@ -46,7 +46,7 @@ const appointmentsDoctor = async (req, res) => {
     }
 }
 
-// API to cancel appointment for doctor panel
+// API to cancel appointment for Expert panel
 const appointmentCancel = async (req, res) => {
     try {
 
@@ -67,7 +67,7 @@ const appointmentCancel = async (req, res) => {
 
 }
 
-// API to mark appointment completed for doctor panel
+// API to mark appointment completed for Expert panel
 const appointmentComplete = async (req, res) => {
     try {
 
@@ -88,12 +88,12 @@ const appointmentComplete = async (req, res) => {
 
 }
 
-// API to get all doctors list for Frontend
-const doctorList = async (req, res) => {
+// API to get all Experts list for Frontend
+const ExpertList = async (req, res) => {
     try {
 
-        const doctors = await ExpertModel.find({}).select(['-password', '-email'])
-        res.json({ success: true, doctors })
+        const Experts = await ExpertModel.find({}).select(['-password', '-email'])
+        res.json({ success: true, Experts })
 
     } catch (error) {
         console.log(error)
@@ -102,7 +102,7 @@ const doctorList = async (req, res) => {
 
 }
 
-// API to change doctor availablity for Admin and Doctor Panel
+// API to change Expert availablity for Admin and Expert Panel
 const changeAvailablity = async (req, res) => {
     try {
 
@@ -118,7 +118,7 @@ const changeAvailablity = async (req, res) => {
     }
 }
 
-// API to get doctor profile for  Doctor Panel
+// API to get Expert profile for  Expert Panel
 const ExpertiseProfile = async (req, res) => {
     try {
 
@@ -133,7 +133,7 @@ const ExpertiseProfile = async (req, res) => {
     }
 }
 
-// API to update doctor profile data from  Doctor Panel
+// API to update Expert profile data from  Expert Panel
 const updateExpertiseProfile = async (req, res) => {
     try {
 
@@ -149,7 +149,7 @@ const updateExpertiseProfile = async (req, res) => {
     }
 }
 
-// API to get dashboard data for doctor panel
+// API to get dashboard data for Expert panel
 const ExpertiseDashboard = async (req, res) => {
     try {
 
@@ -191,10 +191,10 @@ const ExpertiseDashboard = async (req, res) => {
 }
 
 export {
-    loginDoctor,
-    appointmentsDoctor,
+    loginExpert,
+    appointmentsExpert,
     appointmentCancel,
-    doctorList,
+    ExpertList,
     changeAvailablity,
     appointmentComplete,
     ExpertiseDashboard,

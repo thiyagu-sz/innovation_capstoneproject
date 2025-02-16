@@ -139,7 +139,7 @@ const bookAppointment = async (req, res) => {
         const docData = await ExpertModel.findById(docId).select("-password")
 
         if (!docData.available) {
-            return res.json({ success: false, message: 'Doctor Not Available' })
+            return res.json({ success: false, message: 'Expert Not Available' })
         }
 
         let slots_booked = docData.slots_booked
@@ -201,12 +201,12 @@ const cancelAppointment = async (req, res) => {
 
         await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true })
 
-        // releasing doctor slot 
+        // releasing Expert slot 
         const { docId, slotDate, slotTime } = appointmentData
 
-        const doctorData = await ExpertModel.findById(docId)
+        const ExpertData = await ExpertModel.findById(docId)
 
-        let slots_booked = doctorData.slots_booked
+        let slots_booked = ExpertData.slots_booked
 
         slots_booked[slotDate] = slots_booked[slotDate].filter(e => e !== slotTime)
 
