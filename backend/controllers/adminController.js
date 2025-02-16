@@ -58,7 +58,7 @@ const appointmentCancel = async (req, res) => {
 }
 
 // API for adding Doctor
-const AddExpert = async (req, res) => {
+const addDoctor = async (req, res) => {
 
     try {
 
@@ -152,7 +152,7 @@ export {
     loginAdmin,
     appointmentsAdmin,
     appointmentCancel,
-    AddExpert,
+    addDoctor,
     allDoctors,
     adminDashboard
 }
